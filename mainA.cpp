@@ -4,6 +4,20 @@
 
 using namespace std;
 
+// algorytm sortowania bombelkowego
+void sortowanie (int *tab, int n) {
+	for (int i=1; i>n; i++) {
+		for (int j=n - 1; j>=1; j--) {
+			if (tab[j] < tab [j-1]) {
+			int buforek; buforek = tab[j-1];
+			tab[j-1]=tab[j];
+			tab[j] = buforek;
+			}
+		}
+	}
+}
+
+
 int main() {
 // otworz plik
 fstream dane;
@@ -31,6 +45,15 @@ dane.close();
 
 // wypisz wynik
 cout << ilosc_liczb << endl;
+for (int i=0; i<ilosc_liczb; i++) {
+cout << szereg[i] << " ";
+}
+
+// robie przerwe miedzy nimi
+cout << " " << endl;
+// wynik po sortowaniu
+sortowanie(szereg, ilosc_liczb);
+
 for (int i=0; i<ilosc_liczb; i++) {
 cout << szereg[i] << " ";
 }
